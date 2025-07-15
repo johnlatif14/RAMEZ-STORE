@@ -836,6 +836,17 @@
   </main>
 
   <script>
+        // منع فتح أدوات المطور
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        alert('غير مسموح بالوصول إلى أدوات المطور');
+      }
+    });
     // اختيار الشدات أو الحزم
     const ucOptions = document.querySelectorAll('#ucOptions .option-card');
     const bundleOptions = document.querySelectorAll('#bundleOptions .option-card');
